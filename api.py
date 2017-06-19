@@ -8,7 +8,7 @@ ENGINE_URL="https://searx.me/?q=%s&categories=%s&format=%s"
 
 
 def search(query, fmt="json", categories="general"):
-    r = requests.get(ENGINE_URL %(query, fmt, categories))
+    r = requests.get(ENGINE_URL %(query, categories, fmt))
     if r.status_code == 200:
         print(r.text)
         return True, json.loads(r.text)
